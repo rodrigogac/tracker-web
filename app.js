@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function fetchGames() {
-    fetch('http://localhost:5000/games')
+    fetch('http://44.193.72.15:5000/games')
         .then(response => response.json())
         .then(data => {
             console.log("Jogos recebidos:", data);
@@ -26,9 +26,9 @@ function fetchAndDrawGameEvents(gameId) {
     console.log(`Buscando eventos e jogadores para o jogo ID ${gameId}`);
     // Aqui você pode opcionalmente limpar a tela ou mostrar um loader
     Promise.all([
-        fetch(`http://localhost:5000/game_events?gameId=${gameId}`).then(res => res.json()),
-        fetch(`http://localhost:5000/home_players?gameId=${gameId}`).then(res => res.json()),
-        fetch(`http://localhost:5000/opponent_players?gameId=${gameId}`).then(res => res.json()),
+        fetch(`http://44.193.72.15:5000/game_events?gameId=${gameId}`).then(res => res.json()),
+        fetch(`http://44.193.72.15:5000/home_players?gameId=${gameId}`).then(res => res.json()),
+        fetch(`http://44.193.72.15:5000/opponent_players?gameId=${gameId}`).then(res => res.json()),
     ]).then(([events, homePlayers, opponentPlayers]) => {
         console.log("Eventos:", events);
         console.log("Jogadores da casa:", homePlayers);
@@ -58,9 +58,9 @@ function fetchEventsByTime(gameId, clockTime, period) {
     console.log(`Buscando eventos e jogadores para o jogo ID ${gameId} no Perido ${period} no tempo ${clockTime}`);
 
     Promise.all([
-        fetch(`http://localhost:5000/home_players?gameId=${gameId}`).then(response => response.json()),
-        fetch(`http://localhost:5000/opponent_players?gameId=${gameId}`).then(response => response.json()),
-        fetch(`http://localhost:5000/game_events_by_time?gameId=${gameId}&clockTime=${clockTime}&period=${period}`).then(response => response.json())
+        fetch(`http://44.193.72.15:5000/home_players?gameId=${gameId}`).then(response => response.json()),
+        fetch(`http://44.193.72.15:5000/opponent_players?gameId=${gameId}`).then(response => response.json()),
+        fetch(`http://44.193.72.15:5000/game_events_by_time?gameId=${gameId}&clockTime=${clockTime}&period=${period}`).then(response => response.json())
     ]).then(([homePlayers, opponentPlayers, events]) => {
         console.log("Jogadores da casa:", homePlayers);
         console.log("Jogadores oponentes:", opponentPlayers);
@@ -91,9 +91,9 @@ function fetchEventsByTimeAndPeriod(gameId, period, startTime, endTime) {
     console.log(`Buscando eventos e jogadores para o jogo ID ${gameId} no período ${period} entre ${startTime} e ${endTime}`);
 
     Promise.all([
-        fetch(`http://localhost:5000/home_players?gameId=${gameId}`).then(response => response.json()),
-        fetch(`http://localhost:5000/opponent_players?gameId=${gameId}`).then(response => response.json()),
-        fetch(`http://localhost:5000/game_events_by_interval?gameId=${gameId}&period=${period}&startTime=${startTime}&endTime=${endTime}`).then(response => response.json())
+        fetch(`http://44.193.72.15:5000/home_players?gameId=${gameId}`).then(response => response.json()),
+        fetch(`http://44.193.72.15:5000/opponent_players?gameId=${gameId}`).then(response => response.json()),
+        fetch(`http://44.193.72.15:5000/game_events_by_interval?gameId=${gameId}&period=${period}&startTime=${startTime}&endTime=${endTime}`).then(response => response.json())
     ]).then(([homePlayers, opponentPlayers, events]) => {
         console.log("Jogadores da casa:", homePlayers);
         console.log("Jogadores oponentes:", opponentPlayers);
