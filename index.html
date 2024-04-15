@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogos</title>
+    <style>
+        .team-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    
+        .team-list {
+            list-style: none;
+            padding-left: 0;
+        }
+    
+        #teamInfo {
+            width: 600px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            margin-left: 150px;
+        }
+    
+        .column {
+            display: flex;
+            flex-direction: column;
+            float: right;
+            margin-right: 299px;
+        }
+        .column_times {
+            width: 300px;
+            display: flex;
+        }
+    
+        #column1, #column2 {
+            flex: 1;
+        }
+    
+        #courtContainer {
+            width: 600px;
+            height: 300px;
+            position: relative;
+        }
+        h3#tempTeamInfo {
+            margin-left: 407px;
+            margin-top: -29px;
+            height: 60px;
+        }
+    
+        #basketballCourt {
+            width: 100%;
+            height: 100%;
+        }
+    
+        .team-list-container {
+            background-color: #f0f0f0; /* Light grey background */
+            padding: 10px;
+            border-radius: 5px;
+        }
+    
+        #homeTeamList {
+            background-color: #add8e6; /* Light blue background for home team */
+        }
+    
+        #awayTeamList {
+            background-color: #ffb6c1; /* Light pink background for away team */
+        }
+        /* Estilos para as informações dos times */
+        #homeTeamInfo {
+            color: #0047AB; /* Cor azul escuro para o time da casa */
+            background-color: #add8e6; /* Cor de fundo azul claro */
+            padding: 10px;
+            border-radius: 5px;
+            margin-right: 20px; /* Espaço entre os títulos */
+        }
+
+        #awayTeamInfo {
+            color: #8B0000; /* Cor vermelha escura para o time visitante */
+            background-color: #ffb6c1; /* Cor de fundo rosa claro */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #teamInfo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 600px;
+            padding: 0 20px; /* Padding para alinhar com outros elementos da página */
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div class="team-container">
+        <select id="gameSelect">
+            <!-- As opções serão carregadas aqui -->
+        </select>
+        <button id="loadDataButton" onclick="drawGamePositions()">Posicionar Jogadores em Quadra</button>
+    </div>
+    
+    <div id="teamInfo">
+        <h2 id="homeTeamInfo">Time da Casa:</h2>
+        <h2 id="awayTeamInfo">Time Visitante:</h2>
+    </div>
+    <h3 id="tempTeamInfo"></h3>
+
+   
+
+    <div class="column" id="column2">
+        <div id="courtContainer">
+            <img id="basketballCourt" src="court.jpg" alt="Quadra de Basquete">
+        </div>
+    </div>
+
+
+    <div class="column_times" id="column1">
+        <div id="homeTeamList" class="team-list-container">
+            <strong>Time da Casa:</strong>
+            <ul id="homeList" class="team-list">
+                <!-- Lista dos jogadores da casa -->
+            </ul>
+        </div>
+
+        <div id="awayTeamList" class="team-list-container">
+            <strong>Time Visitante:</strong>
+            <ul id="awayList" class="team-list">
+                <!-- Lista dos jogadores visitantes -->
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div id="timelineContainerForPeriods" style="width: 100%; overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; justify-content: space-evenly;">
+            <!-- Os botões serão inseridos aqui via JavaScript -->
+        </ul>
+    </div>
+    
+    
+
+
+   
+
+    <div id="timelineContainer" style="width: 100%; height: 50px; background-color: #eee; display: flex; align-items: center; overflow-x: auto;"></div>
+
+
+
+    <div id="eventsList">
+        <!-- Os eventos serão listados aqui -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
